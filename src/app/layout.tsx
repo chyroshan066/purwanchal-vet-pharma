@@ -2,20 +2,39 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../../public/fonts/flaticon/flaticon.css";
+import "../styles/owl.carousel.min.css";
+import Script from 'next/script';
+import JQueryProvider from "@/utils/jQueryProvider";
 
-const font_name = localFont({
+const poppins = localFont({
   src: [
     {
-      path: "../../public/fonts/<font_path>",
-      weight: "<font_weight>",
-      // weight: "200",
-      style: "<font_style>"
-      // style: "normal"
+      path: "../../public/fonts/poppins/Poppins-Regular.woff2",
+      weight: "400",
+      style: "normal"
     },
-    // .... and so on
   ],
   display: 'swap',
-  variable: '--<font_name>'
+  variable: '--poppins'
+});
+
+const roboto = localFont({
+  src: [
+    {
+      path: "../../public/fonts/roboto/Roboto-Regular.woff2",
+      weight: "400",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/roboto/Roboto-700.woff2",
+      weight: "700",
+      style: "normal"
+    },
+  ],
+  display: 'swap',
+  variable: '--roboto'
 });
 
 export const metadata: Metadata = {
@@ -29,7 +48,7 @@ export const metadata: Metadata = {
   authors: [{ name: "<website_name>" }],
   creator: "<website_name>",
   publisher: "<website_name>",
-  metadataBase: new URL("https://<domain_name>"),
+  metadataBase: new URL("https://purwanchalvetpharma.com"),
   alternates: {
     canonical: "/",
   },
@@ -120,13 +139,25 @@ export default function RootLayout({
             __html: JSON.stringify("structured_data_from_constants"),
           }}
         />
+        <Script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          strategy="afterInteractive"
+        />
+        <Script id="check-plugins" strategy="afterInteractive">
+          {`
+    console.log('jQuery loaded:', typeof window.$ !== 'undefined');
+    console.log('easyPieChart loaded:', typeof window.$.fn.easyPieChart !== 'undefined');
+  `}
+        </Script>
       </head>
 
       <body
-        className={`${font_name.variable}`}
+        className={`${poppins.variable} ${roboto.variable}`}
         suppressHydrationWarning={true}
       >
-        {children}
+        <JQueryProvider>
+          {children}
+        </JQueryProvider>
         <AnalyticsWrapper />
       </body>
     </html>
