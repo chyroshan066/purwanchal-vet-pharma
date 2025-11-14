@@ -1,0 +1,22 @@
+.topBar {
+    font-family: 'Roboto', sans-serif;
+}
+.heading {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+    color: #212121 !important;
+}
+.text {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 0.9rem !important;
+    color: #6c757d !important;
+}
+.icon {
+    color: #7AB730 !important;
+    font-size: 2.5rem !important;
+}

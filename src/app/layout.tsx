@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import localFont from "next/font/local";
-import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
+import Script from 'next/script';
+// import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import "../../public/fonts/flaticon/flaticon.css";
 import "../styles/owl.carousel.min.css";
-import Script from 'next/script';
+import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import JQueryProvider from "@/utils/jQueryProvider";
 
 const poppins = localFont({
@@ -17,7 +18,7 @@ const poppins = localFont({
     },
   ],
   display: 'swap',
-  variable: '--poppins'
+  variable: '--font-poppins'
 });
 
 const roboto = localFont({
@@ -34,7 +35,7 @@ const roboto = localFont({
     },
   ],
   display: 'swap',
-  variable: '--roboto'
+  variable: '--font-roboto'
 });
 
 export const metadata: Metadata = {
@@ -133,12 +134,13 @@ export default function RootLayout({
     <html lang="en">
 
       <head>
-        <script
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify("structured_data_from_constants"),
           }}
-        />
+        /> */}
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
@@ -159,6 +161,19 @@ export default function RootLayout({
           {children}
         </JQueryProvider>
         <AnalyticsWrapper />
+
+        <Script
+          src="/js/easing.min.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="/js/owl.carousel.min.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="/js/waypoints.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
