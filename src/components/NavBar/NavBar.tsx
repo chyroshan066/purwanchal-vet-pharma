@@ -1,11 +1,39 @@
+"use client";
+
 import Link from 'next/link';
 import styles from './NavBar.module.css';
 import { NAVLINKS } from '@/constants';
-import { memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 
 export const Navbar = memo(() => {
+    const navbarRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const navbar = navbarRef.current;
+
+        if (!navbar) return;
+
+        // Sticky Navbar on scroll
+        const handleScroll = () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add(styles.stickyTop);
+            } else {
+                navbar.classList.remove(styles.stickyTop);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <nav className={`navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0`}>
+        <nav
+            ref={navbarRef}
+            className={`navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0 ${styles.navbar}`}
+        >
             <Link
                 href="/"
                 className={`navbar-brand ms-lg-5 ${styles.brand}`}
@@ -21,6 +49,9 @@ export const Navbar = memo(() => {
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
             >
                 <span className="navbar-toggler-icon" />
             </button>
