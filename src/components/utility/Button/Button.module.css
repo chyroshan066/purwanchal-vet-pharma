@@ -1,0 +1,22 @@
+.btn {
+    font-family: 'Roboto', sans-serif; 
+    text-decoration: none;
+    display: inline-block; 
+    padding: 12px 24px; 
+    font-weight: 700; 
+    text-transform: uppercase;
+    border: 2px solid white;
+}
+.btnOutlineLight {
+    color: white;
+    background: transparent;
+    transition: all 0.5s;
+}
+.btnOutlineLight:hover {
+    background: white;
+    color: #212121;
+}
+.btnLight {
+    background: white;
+    color: black;
+}

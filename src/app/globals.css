@@ -45,6 +45,7 @@ body {
 }
 
 @media (max-width: 768px) {
+   /* PRODUCTS */
   .productCarousel .owl-prev {
     left: -10px !important;
   }

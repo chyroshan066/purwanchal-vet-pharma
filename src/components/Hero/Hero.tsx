@@ -3,6 +3,7 @@
 import { memo, useState } from 'react';
 import styles from './Hero.module.css';
 import Link from 'next/link';
+import { Button } from '../utility/Button/Button';
 
 export const Hero = memo(() => {
     const [videoSrc, setVideoSrc] = useState<string>('');
@@ -28,12 +29,11 @@ export const Hero = memo(() => {
                             Dolore tempor clita lorem rebum kasd eirmod dolore diam eos kasd. Kasd clita ea justo est sed kasd erat clita sea
                         </p>
                         <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                            <Link
-                                href="#"
-                                className={`py-md-3 px-md-5 me-5 ${styles.btnLight}`}
-                            >
-                                Read More
-                            </Link>
+
+                            <Button
+                                text="Read More"
+                            />
+
                             <button
                                 type="button"
                                 className={styles.btnPlay}

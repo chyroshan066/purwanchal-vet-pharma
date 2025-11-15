@@ -5,6 +5,7 @@ import { TitleHeader } from "../utility/TitleHeader";
 import { Container } from "../utility/Container";
 import styles from "./Products.module.css";
 import { waitForJQuery } from "@/utils/jQueryProvider";
+import Image from "next/image";
 
 const PRODUCTS = [
     {
@@ -52,7 +53,6 @@ export const Products = memo(() => {
 
     useEffect(() => {
         let mounted = true;
-        let carouselInstance: any = null;
 
         const initCarousel = async () => {
             if (!mounted || !carouselRef.current || initAttemptedRef.current) return;
@@ -88,7 +88,7 @@ export const Products = memo(() => {
                 }
 
                 // Initialize Owl Carousel
-                carouselInstance = $carousel.owlCarousel({
+                $carousel.owlCarousel({
                     loop: true,
                     margin: 30,
                     nav: true,
@@ -216,11 +216,18 @@ export const Products = memo(() => {
                         className={`item ${styles.productItem}`}
                     >
                         <div className={`position-relative bg-light d-flex flex-column text-center ${styles.productItemInner}`}>
-                            <img
+                            <Image
                                 className="img-fluid mb-4"
                                 src={product.imgSrc}
                                 alt={product.product}
-                                loading={index > 2 ? "lazy" : "eager"}
+                                width={300}
+                                height={300}
+                                priority={index <= 2}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'contain'
+                                }}
                             />
                             <h6 className="text-uppercase">{product.product}</h6>
                             <h5 className="text-primary mb-0">${product.price.toFixed(2)}</h5>
