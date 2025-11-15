@@ -73,12 +73,12 @@ export const Hero = memo(() => {
                     </div>
                     <div className={`modal-body ${styles.modalBody}`}>
                         <div className="ratio ratio-16x9">
-                            <iframe
+                            {/* <iframe
                                 id="video"
                                 src={showModal ? `${videoSrc}?autoplay=1&modestbranding=1&showinfo=0` : ''}
                                 title="YouTube video"
                                 allowFullScreen
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>

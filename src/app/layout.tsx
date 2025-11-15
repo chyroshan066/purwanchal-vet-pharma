@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import Script from 'next/script';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "../../public/fonts/flaticon/flaticon.css";
 import "../styles/owl.carousel.min.css";
 import "./globals.css";
 import "@/styles/custom-bootstrap.scss";
+import ScriptsAndProviders from "@/utils/ScriptsAndProviders";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
-import JQueryProvider from "@/utils/jQueryProvider";
 
 const poppins = localFont({
   src: [
@@ -146,47 +145,34 @@ export default function RootLayout({
     <html lang="en">
 
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+        />
         {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify("structured_data_from_constants"),
           }}
         /> */}
-        <Script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-          strategy="afterInteractive"
-        />
-        <Script id="check-plugins" strategy="afterInteractive">
+        {/* <Script id="check-plugins" strategy="afterInteractive">
           {`
     console.log('jQuery loaded:', typeof window.$ !== 'undefined');
     console.log('easyPieChart loaded:', typeof window.$.fn.easyPieChart !== 'undefined');
   `}
-        </Script>
+        </Script> */}
       </head>
 
       <body
         className={`${poppins.variable} ${roboto.variable}`}
         suppressHydrationWarning={true}
       >
-        <JQueryProvider>
+        <ScriptsAndProviders>
           {children}
-        </JQueryProvider>
+        </ScriptsAndProviders>
         <AnalyticsWrapper />
-
-        <Script
-          src="/js/easing.min.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="/js/owl.carousel.min.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="/js/waypoints.min.js"
-          strategy="afterInteractive"
-        />
       </body>
+
     </html>
   );
 }
