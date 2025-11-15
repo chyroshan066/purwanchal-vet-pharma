@@ -1,7 +1,10 @@
-export interface AlertState {
+export interface Title {
+    title?: string;
+}
+
+export interface AlertState extends Title {
     isVisible: boolean;
     type: "success" | "error";
-    title?: string;
     message: string;
 }
 

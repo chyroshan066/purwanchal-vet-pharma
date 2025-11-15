@@ -1,7 +1,14 @@
 import { memo } from "react";
 import styles from "./About.module.css";
+import { Text, Title } from "@/types";
+import { TitleHeader } from "../utility/TitleHeader";
+import Image from "next/image";
 
-const DETAILS = [
+interface Detail extends Title, Text {
+    id: number;
+}
+
+const DETAILS: Detail[] = [
     {
         id: 1,
         title: "Our Mission",
@@ -23,18 +30,22 @@ export const About = memo(() => (
                     style={{ minHeight: "500px" }}
                 >
                     <div className="position-relative h-100">
-                        <img
-                            className="position-absolute w-100 h-100 rounded"
+                        <Image
+                            className="position-absolute w-100 h-100"
                             src="/images/about.jpg"
+                            alt="about-banner"
+                            fill
                             style={{ objectFit: "cover" }}
                         />
                     </div>
                 </div>
                 <div className="col-lg-7">
-                    <div className="border-start border-5 border-primary ps-5 mb-5">
-                        <h6 className={`text-primary text-uppercase`}>About Us</h6>
-                        <h1 className="display-5 text-uppercase mb-0">We Keep Your Pets Happy All Time</h1>
-                    </div>
+
+                    <TitleHeader
+                        title="About Us"
+                        subTitle="We Keep Your Pets Happy All Time"
+                    />
+
                     <h4 className={`text-body mb-4 ${styles.shadeGray}`}>Diam dolor diam ipsum tempor sit. Clita erat ipsum et lorem stet no labore lorem sit clita duo justo magna dolore</h4>
                     <div className="bg-light p-4">
 

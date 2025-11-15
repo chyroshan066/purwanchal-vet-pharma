@@ -2,8 +2,6 @@
     :root {
 
     /* FONTS */
-    /* --font-poppins: var(--font-poppins);
-    --font-roboto: var(--font-roboto); */
     --font-poppins: 'Poppins', sans-serif;
     --font-roboto: 'Roboto', sans-serif;
 }
