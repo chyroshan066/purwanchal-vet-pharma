@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from 'next/script';
-// import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "../../public/fonts/flaticon/flaticon.css";
 import "../styles/owl.carousel.min.css";
+import "./globals.css";
+import "@/styles/custom-bootstrap.scss";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import JQueryProvider from "@/utils/jQueryProvider";
 
@@ -14,6 +15,16 @@ const poppins = localFont({
     {
       path: "../../public/fonts/poppins/Poppins-Regular.woff2",
       weight: "400",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/poppins/Poppins-600.woff2",
+      weight: "600",
+      style: "normal"
+    },
+    {
+      path: "../../public/fonts/poppins/Poppins-700.woff2",
+      weight: "700",
       style: "normal"
     },
   ],

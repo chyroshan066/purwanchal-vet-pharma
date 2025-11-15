@@ -37,7 +37,7 @@ export const Hero = memo(() => {
                             <button
                                 type="button"
                                 className={styles.btnPlay}
-                                onClick={() => handlePlayClick('https://www.youtube.com/watch?v=eIcEPQehkvc')}
+                                onClick={() => handlePlayClick('https://www.youtube.com/embed/DWRcNpR6Kdc')}
                             >
                                 <span />
                             </button>
@@ -57,8 +57,8 @@ export const Hero = memo(() => {
             aria-hidden={!showModal}
             style={{ display: showModal ? 'block' : 'none' }}
         >
-            <div className="modal-dialog modal-dialog-centered modal-lg">
-                <div className="modal-content">
+            <div className={`modal-dialog modal-dialog-centered modal-lg ${styles.modalDialog}`}>
+                <div className={`modal-content ${styles.modalContent}`}>
                     <div className="modal-header">
                         <h5
                             className="modal-title fw-bold text-dark"
@@ -71,7 +71,7 @@ export const Hero = memo(() => {
                             aria-label="Close"
                         />
                     </div>
-                    <div className="modal-body">
+                    <div className={`modal-body ${styles.modalBody}`}>
                         <div className="ratio ratio-16x9">
                             <iframe
                                 id="video"
