@@ -53,15 +53,16 @@ export const Products = memo(() => {
 
     useEffect(() => {
         let mounted = true;
+        const currentCarouselRef = carouselRef.current;
 
         const initCarousel = async () => {
-            if (!mounted || !carouselRef.current || initAttemptedRef.current) return;
+            if (!mounted || !currentCarouselRef || initAttemptedRef.current) return;
 
             try {
                 // Wait for jQuery to be available
                 await waitForJQuery();
 
-                if (!mounted || !carouselRef.current) return;
+                if (!mounted || !currentCarouselRef) return;
 
                 // Check if jQuery is properly loaded
                 if (typeof window.$ === 'undefined' || typeof window.$.fn === 'undefined') {
@@ -79,7 +80,7 @@ export const Products = memo(() => {
 
                 initAttemptedRef.current = true;
 
-                const $carousel = window.$(carouselRef.current);
+                const $carousel = window.$(currentCarouselRef);
 
                 // Destroy existing instance if any
                 if ($carousel.hasClass('owl-loaded')) {
@@ -118,8 +119,6 @@ export const Products = memo(() => {
                 });
 
                 setIsCarouselReady(true);
-                console.log('✅ Owl Carousel initialized successfully');
-
             } catch (error) {
                 console.error('❌ Error initializing carousel:', error);
                 setShouldUseCarousel(false);
@@ -179,9 +178,9 @@ export const Products = memo(() => {
             window.removeEventListener('jQueryLoaded', handleJQueryLoaded);
 
             // Cleanup carousel
-            if (carouselRef.current && isOwlCarouselAvailable()) {
+            if (currentCarouselRef && isOwlCarouselAvailable()) {
                 try {
-                    const $carousel = window.$(carouselRef.current);
+                    const $carousel = window.$(currentCarouselRef);
                     if ($carousel.hasClass('owl-loaded')) {
                         $carousel.trigger('destroy.owl.carousel');
                     }

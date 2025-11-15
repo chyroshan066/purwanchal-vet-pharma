@@ -2,7 +2,6 @@
 
 import { memo, useState } from 'react';
 import styles from './Hero.module.css';
-import Link from 'next/link';
 import { Button } from '../utility/Button/Button';
 
 export const Hero = memo(() => {

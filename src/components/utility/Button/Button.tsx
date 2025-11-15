@@ -17,3 +17,5 @@ export const Button = memo(({
         {text}
     </Link>
 ));
+
+Button.displayName = "Button";
