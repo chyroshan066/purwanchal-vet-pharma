@@ -61,28 +61,6 @@ body {
     z-index: 99;
 }
 
-.service-item a i {
-    position: relative;
-    padding-left: 20px;
-    transition: .3s;
-}
-.service-item a:hover i {
-    padding-left: 50px;
-}
-.service-item a i::after {
-    position: absolute;
-    content: "";
-    width: 20px;
-    height: 2px;
-    top: 50%;
-    left: 10px;
-    margin-top: -1px;
-    background: var(--primary);
-    transition: .3s;
-}
-.service-item a:hover i::after {
-    width: 50px;
-}
 .product-item {
     padding: 30px;
 }
@@ -286,8 +264,11 @@ h1, .h1, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 
 }
 /* h2, .h2 { font-weight: 700 !important; }
 h3, .h3 { font-weight: 600 !important; }
-h4, .h4 { font-weight: 600 !important; }
-h5, .h5 { font-weight: 500 !important; } */
+h4, .h4 { font-weight: 600 !important; } */
+h5, .h5 { 
+    font-family: var(--font-roboto) !important;
+    font-weight: 600 !important; 
+}
 /* h6, .h6 { font-weight: 600 !important; }
 .text-uppercase {
     text-transform: uppercase !important;
