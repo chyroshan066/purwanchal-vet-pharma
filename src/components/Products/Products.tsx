@@ -128,13 +128,11 @@ export const Products = memo(() => {
 
         // Add event listener for owlCarouselReady event
         const handleOwlCarouselReady = () => {
-            console.log('📢 owlCarouselReady event received');
             initCarousel();
         };
 
         // Add event listener for jQueryLoaded event as fallback
         const handleJQueryLoaded = () => {
-            console.log('📢 jQueryLoaded event received');
             // Wait a bit for Owl Carousel to potentially load
             setTimeout(() => {
                 if (isOwlCarouselAvailable()) {
@@ -150,7 +148,6 @@ export const Products = memo(() => {
         // Try to initialize immediately if everything is ready
         const tryImmediateInit = () => {
             if (isOwlCarouselAvailable()) {
-                console.log('🚀 Owl Carousel available immediately, initializing...');
                 initCarousel();
             } else if (typeof window.$ !== 'undefined') {
                 // jQuery is available but Owl Carousel isn't, wait a bit
@@ -197,6 +194,7 @@ export const Products = memo(() => {
 
     return (
         <Container>
+
             <TitleHeader
                 title="Products"
                 subTitle="Products For Your Best Friends"
@@ -205,7 +203,7 @@ export const Products = memo(() => {
 
             <div
                 ref={carouselRef}
-                className={`owl-carousel ${styles.productCarousel}`}
+                className={`owl-carousel ${styles.productCarousel} product-carousel`}
                 style={!shouldUseCarousel ? {
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
@@ -230,6 +228,7 @@ export const Products = memo(() => {
                     </div>
                 ))}
             </div>
+
         </Container>
     );
 });

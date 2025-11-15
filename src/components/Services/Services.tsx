@@ -45,7 +45,7 @@ export const Services = memo(() => (
     <Container>
 
         <TitleHeader
-            title="About Us"
+            title="Services"
             subTitle="We Keep Your Pets Happy All Time"
             style={{ maxWidth: "600px" }}
         />
