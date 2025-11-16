@@ -13,7 +13,9 @@ export const Team = memo(() => {
     const { carouselRef } = useOwlCarousel(TEAM_CAROUSEL_OPTIONS);
 
     return (
-        <Container>
+        <Container
+            outerContainerClassName="py-5"
+        >
 
             <TitleHeader
                 title="Team Members"

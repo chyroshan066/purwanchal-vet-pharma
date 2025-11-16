@@ -1,7 +1,3 @@
-.hero {
-    background: url(/images/hero.jpg) top right no-repeat;
-    background-size: cover;
-}
 .heroTitle {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;

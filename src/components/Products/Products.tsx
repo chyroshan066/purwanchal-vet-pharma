@@ -13,7 +13,9 @@ export const Products = memo(() => {
     const { carouselRef, shouldUseCarousel } = useOwlCarousel(PRODUCT_CAROUSEL_OPTIONS);
 
     return (
-        <Container>
+        <Container
+            outerContainerClassName="py-5"
+        >
 
             <TitleHeader
                 title="Products"

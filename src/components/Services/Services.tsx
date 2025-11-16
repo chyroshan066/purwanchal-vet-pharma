@@ -5,7 +5,9 @@ import { Container } from "../utility/Container";
 import { SERVICES } from "@/constants";
 
 export const Services = memo(() => (
-    <Container>
+    <Container
+        outerContainerClassName="py-5"
+    >
 
         <TitleHeader
             title="Services"

@@ -51,20 +51,20 @@ export const useOwlCarousel = (
     const [shouldUseCarousel, setShouldUseCarousel] = useState(true);
     const initAttemptedRef = useRef(false);
 
-    const defaultOptions: OwlCarouselOptions = {
-        loop: true,
-        nav: true,
-        navText: [
-            '<i class="bi bi-arrow-left" />',
-            '<i class="bi bi-arrow-right" />'
-        ],
-        dots: false,
-        autoplay: true,
-        smartSpeed: 1000,
-    };
-
     // Merge default options with provided options
     const mergedOptions = useMemo(() => {
+        const defaultOptions: OwlCarouselOptions = {
+            loop: true,
+            nav: true,
+            navText: [
+                '<i class="bi bi-arrow-left" />',
+                '<i class="bi bi-arrow-right" />'
+            ],
+            dots: false,
+            autoplay: true,
+            smartSpeed: 1000,
+        };
+
         return { ...defaultOptions, ...options };
     }, [options]);
 

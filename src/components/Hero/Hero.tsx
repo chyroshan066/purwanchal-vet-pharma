@@ -3,6 +3,7 @@
 import { memo, useState } from 'react';
 import styles from './Hero.module.css';
 import { Button } from '../utility/Button/Button';
+import { Container } from '../utility/Container';
 
 export const Hero = memo(() => {
     const [videoSrc, setVideoSrc] = useState<string>('');
@@ -18,34 +19,35 @@ export const Hero = memo(() => {
     };
 
     return <>
-        <div className={`container-fluid bg-primary py-5 mb-5 ${styles.hero}`}>
-            <div className="container py-5">
-                <div className="row justify-content-start">
-                    <div className="col-lg-8 text-center text-lg-start">
-                        <h1 className={`display-1 text-uppercase mb-lg-4 ${styles.heroTitle}`}>Pet Shop</h1>
-                        <h1 className={`text-uppercase mb-lg-4 ${styles.heroSubtitle}`}>Make Your Pets Happy</h1>
-                        <p className={`fs-4 mb-lg-4 ${styles.heroText}`}>
-                            Dolore tempor clita lorem rebum kasd eirmod dolore diam eos kasd. Kasd clita ea justo est sed kasd erat clita sea
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+        <Container
+            outerContainerClassName="bg-primary py-5 mb-5 hero"
+            innerContainerClassName="py-5"
+        >
+            <div className="row justify-content-start">
+                <div className="col-lg-8 text-center text-lg-start">
+                    <h1 className={`display-1 text-uppercase mb-lg-4 ${styles.heroTitle}`}>Pet Shop</h1>
+                    <h1 className={`text-uppercase mb-lg-4 ${styles.heroSubtitle}`}>Make Your Pets Happy</h1>
+                    <p className={`fs-4 mb-lg-4 ${styles.heroText}`}>
+                        Dolore tempor clita lorem rebum kasd eirmod dolore diam eos kasd. Kasd clita ea justo est sed kasd erat clita sea
+                    </p>
+                    <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
 
-                            <Button
-                                text="Read More"
-                            />
+                        <Button
+                            text="Read More"
+                        />
 
-                            <button
-                                type="button"
-                                className={styles.btnPlay}
-                                onClick={() => handlePlayClick('https://www.youtube.com/embed/DWRcNpR6Kdc')}
-                            >
-                                <span />
-                            </button>
-                            <h5 className={`font-weight-normal text-white m-0 ms-4 d-none d-sm-block ${styles.playText}`}>Play Video</h5>
-                        </div>
+                        <button
+                            type="button"
+                            className={styles.btnPlay}
+                            onClick={() => handlePlayClick('https://www.youtube.com/embed/DWRcNpR6Kdc')}
+                        >
+                            <span />
+                        </button>
+                        <h5 className={`font-weight-normal text-white m-0 ms-4 d-none d-sm-block ${styles.playText}`}>Play Video</h5>
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
 
         {/* Video Modal */}
         <div

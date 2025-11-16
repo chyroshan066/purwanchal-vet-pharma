@@ -1,28 +1,6 @@
 import { memo } from "react";
 import styles from './TopBar.module.css';
-import { Icon, Text } from "@/types";
-
-interface Contact extends Icon, Text {
-    header: string;
-}
-
-const CONTACTS: Contact[] = [
-    {
-        icon: "bi-geo-alt",
-        header: "Our Office",
-        text: "123 Street, New York, USA",
-    },
-    {
-        icon: "bi-envelope-open",
-        header: "Email Us",
-        text: "info@example.com",
-    },
-    {
-        icon: "bi-phone-vibrate",
-        header: "Call Us",
-        text: "+012 345 6789",
-    },
-];
+import { CONTACTS } from "@/constants";
 
 export const TopBar = memo(() => (
     <div className="container-fluid border-bottom d-none d-lg-block">

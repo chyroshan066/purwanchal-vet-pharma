@@ -23,7 +23,9 @@ const DETAILS: Detail[] = [
 ];
 
 export const About = memo(() => (
-    <Container>
+    <Container
+        outerContainerClassName="py-5"
+    >
 
         <div className="row gx-5">
             <div

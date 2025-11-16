@@ -1,0 +1,9 @@
+.shadeGray {
+    font-family: var(--font-poppins) !important;
+    color: #656565 !important;
+    font-weight: 500 !important;
+    text-decoration: none;
+}
+.noRounded {
+    border-radius: 0;
+}

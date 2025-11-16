@@ -1,3 +1,7 @@
+export interface Children {
+    children: React.ReactNode;
+}
+
 export interface Title {
     title?: string;
 }
@@ -8,27 +12,33 @@ export interface AlertState extends Title {
     message: string;
 }
 
-export interface Icon {
+interface Icon {
     icon: string;
+}
+
+export interface Header {
+    header: string;
 }
 
 export interface Text {
     text: string;
 }
 
-export interface ImgSrc {
+interface ImgSrc {
     imgSrc: string;
 }
 
-export interface Name {
+interface Name {
     name: string;
 }
 
-export interface Href {
+interface Href {
     href: string;
 }
 
+export interface Contact extends Icon, Text, Header {}
 export interface NavLink extends Name, Href {}
+export interface SocialLink extends Href, Icon {}
 
 export interface Service extends Icon, Title {
     description: string;

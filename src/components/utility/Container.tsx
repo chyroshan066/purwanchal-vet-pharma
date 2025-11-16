@@ -1,10 +1,20 @@
+import { Children } from "@/types";
 import { memo } from "react";
 
+interface ContainerProps extends Children {
+    outerContainerClassName?: string;
+    innerContainerClassName?: string;
+    style?: React.CSSProperties;
+}
+
 export const Container = memo(({
-    children
-}: { children: React.ReactNode }) => (
-    <div className="container-fluid py-5">
-        <div className="container">
+    children, outerContainerClassName, innerContainerClassName, style
+}: ContainerProps) => (
+    <div
+        className={`container-fluid ${outerContainerClassName}`}
+        style={style}
+    >
+        <div className={`container ${innerContainerClassName}`}>
             {children}
         </div>
     </div>

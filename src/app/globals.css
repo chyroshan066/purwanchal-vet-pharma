@@ -18,6 +18,20 @@ body {
     color: #212121;
 }
 
+/* REUSABLE STYLES */
+.shade-gray {
+    color: #656565 !important;
+}
+.no-underline {
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    background: url(/images/hero.jpg) top right no-repeat;
+    background-size: cover;
+}
+
 /* PRODUCTS */
 .product-carousel .owl-nav {
     width: 100%;
@@ -42,6 +56,12 @@ body {
 .product-carousel .owl-nav .owl-prev:hover,
 .product-carousel .owl-nav .owl-next:hover {
     color: var(--dark);
+}
+
+/* OFFER */
+.bg-offer {
+    background: url(/images/offer.jpg) top right no-repeat;
+    background-size: cover;
 }
 
 /* TEAM */
@@ -73,6 +93,10 @@ body {
 }
 
 /* TESTIMONIALS */
+.bg-testimonial {
+    background: url(/images/testimonial.jpg) top left no-repeat;
+    background-size: cover;
+}
 .testimonial-carousel .owl-nav {
     position: absolute;
     width: 100%;

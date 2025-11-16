@@ -8,6 +8,7 @@ import "./globals.css";
 import "@/styles/custom-bootstrap.scss";
 import ScriptsAndProviders from "@/utils/ScriptsAndProviders";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
+import { Children } from "@/types";
 
 const poppins = localFont({
   src: [
@@ -138,9 +139,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<Children>) {
   return (
     <html lang="en">
 
