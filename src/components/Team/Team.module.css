@@ -1,0 +1,26 @@
+.teamItem img {
+    transition: .5s;
+}
+.teamItem:hover img {
+    transform: scale(1.2);
+}
+.teamItem .teamOverlay {
+    position: absolute;
+    top: 45px;
+    right: 45px;
+    bottom: 45px;
+    left: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(122, 183, 48, .8);
+    transition: .5s;
+    opacity: 0;
+}
+.teamItem:hover .teamOverlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+}

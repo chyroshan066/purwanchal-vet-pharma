@@ -4,7 +4,6 @@ import { waitForJQuery } from "@/utils/jQueryProvider";
 export interface OwlCarouselResponsiveConfig {
     [breakpoint: number]: {
         items: number;
-        stagePadding?: number; // can remove
     };
 }
 
@@ -15,12 +14,8 @@ export interface OwlCarouselOptions {
     navText?: [string, string];
     dots?: boolean;
     autoplay?: boolean;
-    autoplayTimeout?: number;  // can remove
-    autoplayHoverPause?: boolean;  // can remove
     smartSpeed?: number;
     responsive?: OwlCarouselResponsiveConfig;
-    center?: boolean;  // can remove
-    stagePadding?: number;  // can remove
     items?: number;
 }
 
@@ -49,8 +44,7 @@ export interface UseOwlCarouselReturn {
  * });
  */
 export const useOwlCarousel = (
-    options: OwlCarouselOptions = {},
-    dependencies: React.DependencyList = []
+    options: OwlCarouselOptions = {}
 ): UseOwlCarouselReturn => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const [isCarouselReady, setIsCarouselReady] = useState(false);
@@ -59,7 +53,6 @@ export const useOwlCarousel = (
 
     const defaultOptions: OwlCarouselOptions = {
         loop: true,
-        margin: 45,  // not in testimonial carousel
         nav: true,
         navText: [
             '<i class="bi bi-arrow-left" />',
@@ -67,23 +60,7 @@ export const useOwlCarousel = (
         ],
         dots: false,
         autoplay: true,
-        // autoplayTimeout: 3000,
-        // autoplayHoverPause: true,
         smartSpeed: 1000,
-        responsive: {  // not in testimonial carousel
-            0: { 
-                items: 1
-            },
-            768: { 
-                items: 2 
-            },
-            992: { 
-                items: 3 
-            },
-            1200: { 
-                items: 4 
-            }
-        }
     };
 
     // Merge default options with provided options
@@ -222,7 +199,7 @@ export const useOwlCarousel = (
                 }
             }
         };
-    }, [...dependencies]); 
+    }, []); 
 
     return {
         carouselRef,
