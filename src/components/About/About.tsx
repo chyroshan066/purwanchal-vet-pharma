@@ -1,6 +1,6 @@
 import { memo } from "react";
 import styles from "./About.module.css";
-import { Text, Title } from "@/types";
+import { ClassName, Text, Title } from "@/types";
 import { TitleHeader } from "../utility/TitleHeader";
 import Image from "next/image";
 import { Container } from "../utility/Container";
@@ -22,9 +22,11 @@ const DETAILS: Detail[] = [
     },
 ];
 
-export const About = memo(() => (
+export const About = memo(({
+    className
+}: ClassName) => (
     <Container
-        outerContainerClassName="py-5"
+        outerContainerClassName={`py-5 ${className}`}
     >
 
         <div className="row gx-5">

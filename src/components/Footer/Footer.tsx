@@ -14,7 +14,9 @@ const FooterColumn = memo(({
         <h5 className="text-uppercase border-start border-5 border-primary ps-3 mb-4">{header}</h5>
         {children}
     </div>
-))
+));
+
+FooterColumn.displayName = "FooterColumn";
 
 export const Footer = memo(() => (
     <>
@@ -43,7 +45,7 @@ export const Footer = memo(() => (
                         {NAVLINKS.map((link, index) => (
                             <Link
                                 key={index}
-                                className={`text-body mb-2 ${styles.shadeGray}`}
+                                className={`mb-2 ${styles.shadeGray}`}
                                 href={link.href}
                             >
                                 <i className="bi bi-arrow-right text-primary me-2" />

@@ -3,10 +3,13 @@ import { TitleHeader } from "./utility/TitleHeader";
 import styles from "./About/About.module.css";
 import { Container } from "./utility/Container";
 import { SERVICES } from "@/constants";
+import { ClassName } from "@/types";
 
-export const Services = memo(() => (
+export const Services = memo(({
+    className
+}: ClassName) => (
     <Container
-        outerContainerClassName="py-5"
+        outerContainerClassName={`py-5 ${className}`}
     >
 
         <TitleHeader

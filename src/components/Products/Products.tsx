@@ -8,13 +8,16 @@ import Image from "next/image";
 import { useOwlCarousel } from "@/hooks/useOwlCarousel";
 import { PRODUCT_CAROUSEL_OPTIONS } from "@/utils/owlCarouselPresets";
 import { PRODUCTS } from "@/constants";
+import { ClassName } from "@/types";
 
-export const Products = memo(() => {
+export const Products = memo(({
+    className
+}: ClassName) => {
     const { carouselRef, shouldUseCarousel } = useOwlCarousel(PRODUCT_CAROUSEL_OPTIONS);
 
     return (
         <Container
-            outerContainerClassName="py-5"
+            outerContainerClassName={`py-5 ${className}`}
         >
 
             <TitleHeader

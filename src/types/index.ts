@@ -6,10 +6,16 @@ export interface Title {
     title?: string;
 }
 
-export interface AlertState extends Title {
-    isVisible: boolean;
-    type: "success" | "error";
+export interface Message {
     message: string;
+}
+
+export interface IsVisible {
+    isVisible: boolean;
+}
+
+export interface AlertState extends Title, Message, IsVisible {
+    type: "success" | "error";
 }
 
 interface Icon {
@@ -60,4 +66,8 @@ export interface Team extends ImgSrc, Name {
 
 export interface Testimonial extends Name, ImgSrc, Text {
     profession: string;
+}
+
+export interface ClassName {
+    className?: string
 }

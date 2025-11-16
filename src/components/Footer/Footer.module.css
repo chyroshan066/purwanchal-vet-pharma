@@ -2,8 +2,8 @@
     font-family: var(--font-poppins) !important;
     color: #656565 !important;
     font-weight: 500 !important;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 .noRounded {
-    border-radius: 0;
+    border-radius: 0 !important;
 }

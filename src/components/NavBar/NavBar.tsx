@@ -4,9 +4,11 @@ import Link from 'next/link';
 import styles from './NavBar.module.css';
 import { NAVLINKS } from '@/constants';
 import { memo, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 export const Navbar = memo(() => {
     const navbarRef = useRef<HTMLElement>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         const navbar = navbarRef.current;
@@ -39,7 +41,7 @@ export const Navbar = memo(() => {
                 className={`navbar-brand ms-lg-5 ${styles.brand}`}
             >
                 <h1 className={`m-0 text-uppercase ${styles.h1}`}>
-                    <i className={`bi bi-shop fs-1 me-3 ${styles.brandIcon}`}></i>
+                    <i className={`bi bi-shop fs-1 me-3 ${styles.brandIcon}`} />
                     Pet Shop
                 </h1>
             </Link>
@@ -62,21 +64,25 @@ export const Navbar = memo(() => {
             >
                 <div className="navbar-nav ms-auto py-0">
 
-                    {NAVLINKS.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.href}
-                            className={`nav-item nav-link ${styles.navLink}`}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
+                    {NAVLINKS.map((link, index) => {
+                        const isActive = pathname === link.href;
+
+                        return (
+                            <Link
+                                key={index}
+                                href={link.href}
+                                className={`nav-link ${styles.navLink} ${isActive ? styles.active : ''}`}
+                            >
+                                {link.name}
+                            </Link>
+                        );
+                    })}
 
                     <Link
                         href="/contact"
-                        className={`nav-item nav-link ${styles.navLink} ${styles.navContact}`}
+                        className={`nav-link ${styles.navLink} ${styles.navContact}`}
                     >
-                        Contact <i className="bi bi-arrow-right"></i>
+                        Contact <i className="bi bi-arrow-right" />
                     </Link>
                 </div>
             </div>
