@@ -1,7 +1,7 @@
 import { memo } from "react";
-import { TitleHeader } from "../utility/TitleHeader";
-import styles from "./Services.module.css";
-import { Container } from "../utility/Container";
+import { TitleHeader } from "./utility/TitleHeader";
+import styles from "./About/About.module.css";
+import { Container } from "./utility/Container";
 import { SERVICES } from "@/constants";
 
 export const Services = memo(() => (
