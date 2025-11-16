@@ -1,9 +1,10 @@
 import { memo } from "react";
 import { Button } from "../utility/Button/Button";
 import { TitleHeader } from "../utility/TitleHeader";
+import styles from "./Offer.module.css";
 
 export const Offer = memo(() => (
-    <div className="container-fluid bg-offer my-5 py-5">
+    <div className={`container-fluid my-5 py-5 ${styles.bgOffer}`}>
         <div className="container py-5">
             <div className="row gx-5 justify-content-start">
                 <div className="col-lg-7">

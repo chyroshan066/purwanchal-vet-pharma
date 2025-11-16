@@ -1,13 +1,20 @@
 "use client";
 
-import { memo, useEffect, useRef, useState } from "react";
+import { memo } from "react";
 import { TitleHeader } from "../utility/TitleHeader";
 import { Container } from "../utility/Container";
 import styles from "./Products.module.css";
-import { waitForJQuery } from "@/utils/jQueryProvider";
 import Image from "next/image";
+import { ImgSrc } from "@/types";
+import { useOwlCarousel } from "@/hooks/useOwlCarousel";
+import { PRODUCT_CAROUSEL_OPTIONS } from "@/utils/owlCarouselPresets";
 
-const PRODUCTS = [
+interface Product extends ImgSrc {
+    product: string;
+    price: number;
+}
+
+const PRODUCTS: Product[] = [
     {
         imgSrc: "/images/products/product-1.png",
         product: "Quality Pet Foods",
@@ -35,161 +42,8 @@ const PRODUCTS = [
     },
 ];
 
-// Helper function to check if Owl Carousel is available
-const isOwlCarouselAvailable = (): boolean => {
-    return !!(
-        typeof window !== 'undefined' &&
-        window.$ &&
-        typeof window.$.fn === 'object' &&
-        typeof window.$.fn.owlCarousel === 'function'
-    );
-};
-
 export const Products = memo(() => {
-    const carouselRef = useRef<HTMLDivElement>(null);
-    const [isCarouselReady, setIsCarouselReady] = useState(false);
-    const [shouldUseCarousel, setShouldUseCarousel] = useState(true);
-    const initAttemptedRef = useRef(false);
-
-    useEffect(() => {
-        let mounted = true;
-        const currentCarouselRef = carouselRef.current;
-
-        const initCarousel = async () => {
-            if (!mounted || !currentCarouselRef || initAttemptedRef.current) return;
-
-            try {
-                // Wait for jQuery to be available
-                await waitForJQuery();
-
-                if (!mounted || !currentCarouselRef) return;
-
-                // Check if jQuery is properly loaded
-                if (typeof window.$ === 'undefined' || typeof window.$.fn === 'undefined') {
-                    console.error('❌ jQuery not properly loaded');
-                    setShouldUseCarousel(false);
-                    return;
-                }
-
-                // Check if Owl Carousel is available
-                if (!isOwlCarouselAvailable()) {
-                    console.error('❌ Owl Carousel not available');
-                    setShouldUseCarousel(false);
-                    return;
-                }
-
-                initAttemptedRef.current = true;
-
-                const $carousel = window.$(currentCarouselRef);
-
-                // Destroy existing instance if any
-                if ($carousel.hasClass('owl-loaded')) {
-                    $carousel.trigger('destroy.owl.carousel');
-                    $carousel.removeClass('owl-loaded');
-                }
-
-                // Initialize Owl Carousel
-                $carousel.owlCarousel({
-                    loop: true,
-                    margin: 30,
-                    nav: true,
-                    navText: [
-                        '<i class="bi bi-arrow-left"></i>',
-                        '<i class="bi bi-arrow-right"></i>'
-                    ],
-                    dots: false,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    autoplayHoverPause: true,
-                    smartSpeed: 1000,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        576: {
-                            items: 2
-                        },
-                        768: {
-                            items: 3
-                        },
-                        992: {
-                            items: 4
-                        }
-                    }
-                });
-
-                setIsCarouselReady(true);
-            } catch (error) {
-                console.error('❌ Error initializing carousel:', error);
-                setShouldUseCarousel(false);
-            }
-        };
-
-        // Add event listener for owlCarouselReady event
-        const handleOwlCarouselReady = () => {
-            initCarousel();
-        };
-
-        // Add event listener for jQueryLoaded event as fallback
-        const handleJQueryLoaded = () => {
-            // Wait a bit for Owl Carousel to potentially load
-            setTimeout(() => {
-                if (isOwlCarouselAvailable()) {
-                    initCarousel();
-                }
-            }, 100);
-        };
-
-        // Set up event listeners
-        window.addEventListener('owlCarouselReady', handleOwlCarouselReady);
-        window.addEventListener('jQueryLoaded', handleJQueryLoaded);
-
-        // Try to initialize immediately if everything is ready
-        const tryImmediateInit = () => {
-            if (isOwlCarouselAvailable()) {
-                initCarousel();
-            } else if (typeof window.$ !== 'undefined') {
-                // jQuery is available but Owl Carousel isn't, wait a bit
-                console.log('⏳ jQuery available, waiting for Owl Carousel...');
-                const checkOwl = setInterval(() => {
-                    if (isOwlCarouselAvailable()) {
-                        clearInterval(checkOwl);
-                        initCarousel();
-                    }
-                }, 50);
-
-                // Timeout after 3 seconds
-                setTimeout(() => {
-                    clearInterval(checkOwl);
-                    if (!isOwlCarouselAvailable()) {
-                        console.error('❌ Owl Carousel not available after waiting');
-                        setShouldUseCarousel(false);
-                    }
-                }, 3000);
-            }
-        };
-
-        // Start the initialization process
-        tryImmediateInit();
-
-        return () => {
-            mounted = false;
-            window.removeEventListener('owlCarouselReady', handleOwlCarouselReady);
-            window.removeEventListener('jQueryLoaded', handleJQueryLoaded);
-
-            // Cleanup carousel
-            if (currentCarouselRef && isOwlCarouselAvailable()) {
-                try {
-                    const $carousel = window.$(currentCarouselRef);
-                    if ($carousel.hasClass('owl-loaded')) {
-                        $carousel.trigger('destroy.owl.carousel');
-                    }
-                } catch (error) {
-                    console.error('Error destroying carousel:', error);
-                }
-            }
-        };
-    }, []);
+    const { carouselRef, shouldUseCarousel } = useOwlCarousel(PRODUCT_CAROUSEL_OPTIONS);
 
     return (
         <Container>
@@ -234,7 +88,6 @@ export const Products = memo(() => {
                     </div>
                 ))}
             </div>
-
         </Container>
     );
 });

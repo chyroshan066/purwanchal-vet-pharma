@@ -4,6 +4,7 @@ import { Navbar } from "@/components/NavBar/NavBar";
 import { Offer } from "@/components/Offer/Offer";
 import { Products } from "@/components/Products/Products";
 import { Services } from "@/components/Services/Services";
+import { Team } from "@/components/Team/Team";
 import { TopBar } from "@/components/TopBar/TopBar";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <Products />
       <Offer />
+      <Team />
     </>
   );
 }

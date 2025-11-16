@@ -16,7 +16,16 @@ export interface Text {
     text: string;
 }
 
-export interface NavLink {
+export interface ImgSrc {
+    imgSrc: string;
+}
+
+export interface Name {
     name: string;
+}
+
+export interface Href {
     href: string;
 }
+
+export interface NavLink extends Name, Href {}
