@@ -29,3 +29,25 @@ export interface Href {
 }
 
 export interface NavLink extends Name, Href {}
+
+export interface Service extends Icon, Title {
+    description: string;
+}
+
+export interface Product extends ImgSrc {
+    product: string;
+    price: number;
+}
+
+export interface Team extends ImgSrc, Name {
+    designation: string;
+    social: {
+        facebookLink: string;
+        twitterLink: string;
+        linkedinLink: string;
+    }
+}
+
+export interface Testimonial extends Name, ImgSrc, Text {
+    profession: string;
+}

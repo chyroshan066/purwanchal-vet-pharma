@@ -1,45 +1,8 @@
 import { memo } from "react";
 import { TitleHeader } from "../utility/TitleHeader";
-import { Icon, Title } from "@/types";
 import styles from "./Services.module.css";
 import { Container } from "../utility/Container";
-
-interface Service extends Icon, Title {
-    description: string;
-}
-
-const SERVICES: Service[] = [
-    {
-        icon: "house",
-        title: "Pet Boarding",
-        description: "Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit",
-    },
-    {
-        icon: "food",
-        title: "Pet Feeding",
-        description: "Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit",
-    },
-    {
-        icon: "grooming",
-        title: "Pet Grooming",
-        description: "Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit",
-    },
-    {
-        icon: "cat",
-        title: "Pet Training",
-        description: "Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit",
-    },
-    {
-        icon: "dog",
-        title: "Pet Exercise",
-        description: "Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit",
-    },
-    {
-        icon: "vaccine",
-        title: "Pet Treatment",
-        description: "Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit",
-    },
-];
+import { SERVICES } from "@/constants";
 
 export const Services = memo(() => (
     <Container>

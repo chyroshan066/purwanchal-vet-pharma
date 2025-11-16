@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { waitForJQuery } from "@/utils/jQueryProvider";
 
 export interface OwlCarouselResponsiveConfig {
@@ -64,7 +64,9 @@ export const useOwlCarousel = (
     };
 
     // Merge default options with provided options
-    const mergedOptions = { ...defaultOptions, ...options };
+    const mergedOptions = useMemo(() => {
+        return { ...defaultOptions, ...options };
+    }, [options]);
 
     // Function to reinitialize carousel manually
     const reinitializeCarousel = async () => {
@@ -199,7 +201,7 @@ export const useOwlCarousel = (
                 }
             }
         };
-    }, []); 
+    }, [mergedOptions]); 
 
     return {
         carouselRef,

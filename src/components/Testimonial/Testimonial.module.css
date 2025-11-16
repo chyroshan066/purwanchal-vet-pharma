@@ -1,0 +1,8 @@
+.bgTestimonial {
+    background: url(/images/testimonial.jpg) top left no-repeat;
+    background-size: cover;
+}
+.owlItem img {
+    width: 100px;
+    height: 100px;
+}

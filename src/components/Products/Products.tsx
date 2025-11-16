@@ -5,42 +5,9 @@ import { TitleHeader } from "../utility/TitleHeader";
 import { Container } from "../utility/Container";
 import styles from "./Products.module.css";
 import Image from "next/image";
-import { ImgSrc } from "@/types";
 import { useOwlCarousel } from "@/hooks/useOwlCarousel";
 import { PRODUCT_CAROUSEL_OPTIONS } from "@/utils/owlCarouselPresets";
-
-interface Product extends ImgSrc {
-    product: string;
-    price: number;
-}
-
-const PRODUCTS: Product[] = [
-    {
-        imgSrc: "/images/products/product-1.png",
-        product: "Quality Pet Foods",
-        price: 199.00,
-    },
-    {
-        imgSrc: "/images/products/product-2.png",
-        product: "Quality Pet Foods",
-        price: 199.00,
-    },
-    {
-        imgSrc: "/images/products/product-3.png",
-        product: "Quality Pet Foods",
-        price: 199.00,
-    },
-    {
-        imgSrc: "/images/products/product-4.png",
-        product: "Quality Pet Foods",
-        price: 199.00,
-    },
-    {
-        imgSrc: "/images/products/product-2.png",
-        product: "Quality Pet Foods",
-        price: 199.00,
-    },
-];
+import { PRODUCTS } from "@/constants";
 
 export const Products = memo(() => {
     const { carouselRef, shouldUseCarousel } = useOwlCarousel(PRODUCT_CAROUSEL_OPTIONS);

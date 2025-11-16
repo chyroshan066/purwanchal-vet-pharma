@@ -3,72 +3,11 @@
 import { memo } from "react";
 import { Container } from "../utility/Container";
 import { TitleHeader } from "../utility/TitleHeader";
-import { ImgSrc, Name } from "@/types";
 import { useOwlCarousel } from "@/hooks/useOwlCarousel";
 import { TEAM_CAROUSEL_OPTIONS } from "@/utils/owlCarouselPresets";
 import styles from "./Team.module.css";
-
-interface Team extends ImgSrc, Name {
-    designation: string;
-    social: {
-        facebookLink: string;
-        twitterLink: string;
-        linkedinLink: string;
-    }
-}
-
-const TEAM: Team[] = [
-    {
-        imgSrc: "/images/team/team-1.jpg",
-        name: "Full Name",
-        designation: "Designation",
-        social: {
-            facebookLink: "#",
-            twitterLink: "#",
-            linkedinLink: "#"
-        },
-    },
-    {
-        imgSrc: "/images/team/team-2.jpg",
-        name: "Full Name",
-        designation: "Designation",
-        social: {
-            facebookLink: "#",
-            twitterLink: "#",
-            linkedinLink: "#"
-        },
-    },
-    {
-        imgSrc: "/images/team/team-3.jpg",
-        name: "Full Name",
-        designation: "Designation",
-        social: {
-            facebookLink: "#",
-            twitterLink: "#",
-            linkedinLink: "#"
-        },
-    },
-    {
-        imgSrc: "/images/team/team-4.jpg",
-        name: "Full Name",
-        designation: "Designation",
-        social: {
-            facebookLink: "#",
-            twitterLink: "#",
-            linkedinLink: "#"
-        },
-    },
-    {
-        imgSrc: "/images/team/team-5.jpg",
-        name: "Full Name",
-        designation: "Designation",
-        social: {
-            facebookLink: "#",
-            twitterLink: "#",
-            linkedinLink: "#"
-        },
-    },
-];
+import Image from "next/image";
+import { TEAM } from "@/constants";
 
 export const Team = memo(() => {
     const { carouselRef } = useOwlCarousel(TEAM_CAROUSEL_OPTIONS);
@@ -94,10 +33,18 @@ export const Team = memo(() => {
                         className={styles.teamItem}
                     >
                         <div className="position-relative overflow-hidden">
-                            <img
+                            <Image
                                 className="img-fluid w-100"
                                 src={member.imgSrc}
-                                alt=""
+                                alt={member.name}
+                                width={500}
+                                height={500}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'cover'
+                                }}
+                                priority={index <= 3}
                             />
                             <div className={styles.teamOverlay}>
                                 <div className="d-flex align-items-center justify-content-start">
