@@ -2,6 +2,7 @@
 
 import { Alert } from "@/components/Alert";
 import { InputField } from "@/components/utility/Button/InputField";
+import { SubmitButton } from "@/components/utility/Button/SubmitButton";
 import { Container } from "@/components/utility/Container"
 import { TitleHeader } from "@/components/utility/TitleHeader";
 import { CONTACTS } from "@/constants";
@@ -69,15 +70,15 @@ export default function Contact() {
 
             showAlert(
                 "success",
-                "Thank you! Your appointment has been booked successfully. We look forward to serving you.",
-                "Appointment Booked!"
+                "Thank you! Your message has been sent successfully. We look forward to serving you.",
+                "Message Sent!"
             );
 
             reset(initialValues);
         } catch (error) {
             const errorMessage = error instanceof Error
                 ? error.message
-                : "Something went wrong while booking an appointment. Please try again.";
+                : "Something went wrong while sending a message. Please try again.";
 
             showAlert(
                 "error",
@@ -85,7 +86,7 @@ export default function Contact() {
                 "Sending Failed"
             );
 
-            console.error('Form submission error:', error);
+            console.error('Message Sending error:', error);
         }
     }, [reset, showAlert]);
 
@@ -97,7 +98,7 @@ export default function Contact() {
     );
 
     const buttonText = useMemo(
-        () => isSubmitting ? "Booking..." : "Book An Appointment",
+        () => isSubmitting ? "Sending..." : "Send Message",
         [isSubmitting]
     );
 
@@ -166,14 +167,14 @@ export default function Contact() {
                                     disabled={isSubmitting}
                                 />
                             </div>
+
                             <div className="col-12">
-                                <button
-                                    className="btn btn-primary w-100 py-3"
-                                    type="submit"
-                                >
-                                    Send Message
-                                </button>
+                                <SubmitButton
+                                    isButtonDisabled={isButtonDisabled}
+                                    btnText={buttonText}
+                                />
                             </div>
+
                         </div>
                     </form>
                 </div>
