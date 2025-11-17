@@ -36,15 +36,10 @@ export const Navbar = memo(() => {
         const collapse = collapseRef.current;
 
         if (collapse && collapse.classList.contains('show')) {
-            const bootstrap = (window as any).bootstrap;
+            const toggleButton = document.querySelector('[data-bs-target="#navbarCollapse"]');
 
-            const bsCollapse = bootstrap?.Collapse?.getInstance(collapse);
-
-            if (bsCollapse) {
-                bsCollapse.hide();
-            } else {
-                // Fallback: manually remove the class if Bootstrap instance not found
-                collapse.classList.remove('show');
+            if (toggleButton) {
+                (toggleButton as HTMLElement).click();
             }
         }
     };
