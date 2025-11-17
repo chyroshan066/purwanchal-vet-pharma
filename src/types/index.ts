@@ -57,7 +57,7 @@ export interface Email {
 export interface Contact extends Icon, Text, Header, Href {}
 export interface NavLink extends Name, Href {}
 export interface SocialLink extends Href, Icon {}
-export interface Service extends Icon, Title {}
+export interface Service extends Icon, Title, Description {}
 
 export interface Product extends ImgSrc {
     product: string;
