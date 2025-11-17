@@ -2,6 +2,10 @@ export interface Children {
     children: React.ReactNode;
 }
 
+export interface ClassName {
+    className?: string
+}
+
 export interface Title {
     title?: string;
 }
@@ -38,11 +42,11 @@ interface Name {
     name: string;
 }
 
-interface Href {
+export interface Href {
     href: string;
 }
 
-export interface Contact extends Icon, Text, Header {}
+export interface Contact extends Icon, Text, Header, Href {}
 export interface NavLink extends Name, Href {}
 export interface SocialLink extends Href, Icon {}
 
@@ -52,7 +56,6 @@ export interface Service extends Icon, Title {
 
 export interface Product extends ImgSrc {
     product: string;
-    price: number;
 }
 
 export interface Team extends ImgSrc, Name {
@@ -66,8 +69,4 @@ export interface Team extends ImgSrc, Name {
 
 export interface Testimonial extends Name, ImgSrc, Text {
     profession: string;
-}
-
-export interface ClassName {
-    className?: string
 }

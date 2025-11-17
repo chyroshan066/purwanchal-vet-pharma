@@ -1,17 +1,20 @@
 import { memo } from "react";
+import styles from "../../Footer/Footer.module.css";
+import { ClassName } from "@/types";
 
-interface SubmitButtonProps {
+interface SubmitButtonProps extends ClassName {
     isButtonDisabled?: boolean;
     btnText: string;
 }
 
 export const SubmitButton = memo(({
     isButtonDisabled = false,
-    btnText
+    btnText,
+    className
 }: SubmitButtonProps) => (
     <button
         type="submit"
-        className="btn btn-primary w-100 py-3"
+        className={`btn btn-primary ${className} ${styles.noRounded}`}
         disabled={isButtonDisabled}
     >
         {btnText}

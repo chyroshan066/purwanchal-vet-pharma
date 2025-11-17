@@ -2,19 +2,15 @@ import { SocialLink } from "@/types";
 
 export const SOCIALLINKS: SocialLink[] = [
     {
-        icon: "bi-twitter",
-        href: "#"
-    },
-    {
         icon: "bi-facebook",
-        href: "#"
+        href: "https://www.facebook.com/purwanchal.vets/"
     },
     {
-        icon: "bi-linkedin",
-        href: "#"
+        icon: "bi-tiktok",
+        href: "https://www.tiktok.com/@purwanchal.vet.ph?_r=1&_t=ZS-91TTYv9GitW"
     },
     {
-        icon: "bi-instagram",
-        href: "#"
+        icon: "bi-whatsapp",
+        href: "https://wa.me/9779822299946"
     },
 ];

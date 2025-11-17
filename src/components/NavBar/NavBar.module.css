@@ -1,8 +1,10 @@
 .brand {
     font-family: 'Roboto', sans-serif;
+    padding-left: 0;
 }
 .h1 {
     font-weight: 700 !important;
+    font-size: calc(1.275rem + 1.5vw);
 }
 .brandIcon {
     color: #7AB730 !important;
@@ -64,7 +66,56 @@
     margin-left: 3rem !important;
 }
 
+@media (max-width: 991.98px) {
+    .navLink {
+        margin-left: 0 !important;
+        padding: 10px 0 !important;
+    } 
+    .navContact {
+        margin-left: 0 !important;
+        margin-top: 10px !important;
+        justify-content: start !important;
+        padding-left: 10px !important;
+    }
+    .stickyTop {
+        position: relative !important;
+        box-shadow: none !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1054px) {
+    .navbar .navLink {
+        margin-left: 8px !important; 
+        font-size: 16px !important;
+    }
+    .navbar .navContact {
+        margin-left: 1rem !important;
+        padding: 10px 20px !important;
+        margin-right: 0 !important;
+    }
+    .stickyTop .navLink {
+        margin-left: 8px !important; 
+    }
+    .stickyTop .navContact {
+        margin-left: 1rem !important;
+        padding: 0px 20px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+    .h1 {
+        font-size: 1.8rem !important;
+    }
+    .brandIcon {
+        font-size: 2rem !important; 
+    }
+}
+
 @media (min-width: 992px) {
+    .brand {
+        padding-left: 2rem;
+    }
     .navbar .navLink::before {
         position: absolute;
         content: "";
@@ -80,6 +131,9 @@
         width: 100%;
         left: 0;
     }
+    .navbar .navContact {
+        margin-right: 0 !important; 
+    }
     .navbar .navLink.navContact::before {
         width: 100%;
         height: 1px;
@@ -88,19 +142,8 @@
     }
 }
 
-@media (max-width: 991.98px) {
-    .navLink {
-        margin-left: 0 !important;
-        padding: 10px 0 !important;
-    } 
-    .navContact {
-        margin-left: 0 !important;
-        margin-top: 10px !important;
-        justify-content: start !important;
-        padding-left: 10px !important;
-    }
-    .stickyTop {
-        position: relative !important;
-        box-shadow: none !important;
+@media (min-width: 1200px) {
+    .h1 {
+        font-size: 2.5rem;
     }
 }

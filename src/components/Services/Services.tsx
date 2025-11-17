@@ -1,9 +1,11 @@
 import { memo } from "react";
-import { TitleHeader } from "./utility/TitleHeader";
-import styles from "./About/About.module.css";
-import { Container } from "./utility/Container";
+import aboutStyles from "../About/About.module.css";
 import { SERVICES } from "@/constants";
 import { ClassName } from "@/types";
+import { Container } from "../utility/Container";
+import { TitleHeader } from "../utility/TitleHeader";
+import styles from "./Services.module.css";
+
 
 export const Services = memo(({
     className
@@ -22,13 +24,13 @@ export const Services = memo(({
             {SERVICES.map((service, index) => (
                 <div
                     key={index}
-                    className="col-md-6"
+                    className="col-md-6 d-flex"
                 >
                     <div className={`bg-light d-flex p-4 ${styles.serviceItem}`}>
                         <i className={`flaticon-${service.icon} display-1 text-primary me-4`} />
                         <div>
                             <h5 className="text-uppercase mb-3">{service.title}</h5>
-                            <p className={styles.shadeGray}>{service.description}</p>
+                            <p className={aboutStyles.shadeGray}>{service.description}</p>
                         </div>
                     </div>
                 </div>

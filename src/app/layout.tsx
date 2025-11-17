@@ -12,7 +12,7 @@ import { Children } from "@/types";
 import { TopBar } from "@/components/TopBar/TopBar";
 import { Navbar } from "@/components/NavBar/NavBar";
 import { Footer } from "@/components/Footer/Footer";
-import { BackToTop } from "@/components/BackToTop";
+import { BackToTop } from "@/components/BackToTop/BackToTop";
 
 const poppins = localFont({
   src: [

@@ -55,7 +55,6 @@ export const Products = memo(({
                                 }}
                             />
                             <h6 className="text-uppercase">{product.product}</h6>
-                            <h5 className="text-primary mb-0">${product.price.toFixed(2)}</h5>
                         </div>
                     </div>
                 ))}

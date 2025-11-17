@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { memo, useState, useEffect } from "react";
-import styles from "./Footer/Footer.module.css";
+import footerStyles from "../Footer/Footer.module.css";
+import styles from "./BackToTop.module.css";
 
 export const BackToTop = memo(() => {
     const [isVisible, setIsVisible] = useState(false);
@@ -61,7 +62,7 @@ export const BackToTop = memo(() => {
         <Link
             href="#"
             onClick={scrollToTop}
-            className={`btn btn-primary py-3 fs-4 back-to-top ${styles.noRounded}`}
+            className={`btn btn-primary py-3 fs-4 ${styles.backToTop} ${footerStyles.noRounded}`}
             style={{
                 opacity: isVisible ? 1 : 0,
                 visibility: isVisible ? 'visible' : 'hidden',

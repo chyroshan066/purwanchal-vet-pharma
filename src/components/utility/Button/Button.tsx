@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { memo } from "react";
 import styles from "./Button.module.css";
-import { Text } from "@/types";
+import { Href, Text } from "@/types";
 
-interface ButtonProps extends Text {
+interface ButtonProps extends Text, Href {
     variant?: string;
 }
 
 export const Button = memo(({
-    text, variant = "btnOutlineLight"
+    text,
+    href,
+    variant = "btnOutlineLight"
 }: ButtonProps) => (
     <Link
-        href="#"
+        href={href}
         className={`py-md-3 px-md-5 me-5 ${styles.btn} ${styles[variant]}`}
     >
         {text}

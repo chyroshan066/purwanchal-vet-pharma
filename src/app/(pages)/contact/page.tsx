@@ -1,17 +1,15 @@
 "use client";
 
 import { Alert } from "@/components/Alert";
-import { InputField } from "@/components/utility/Button/InputField";
+import { InputField } from "@/components/utility/InputField/InputField";
 import { SubmitButton } from "@/components/utility/Button/SubmitButton";
 import { Container } from "@/components/utility/Container"
 import { TitleHeader } from "@/components/utility/TitleHeader";
 import { CONTACTS } from "@/constants";
 import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
-import { AlertState } from "@/types";
 import { onSubmit } from "@/utils/contactData";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useFormSubmission } from "@/hooks/useFormSubmission";
+import { useMemo } from "react";
 
 const initialValues: ContactFormData = {
     name: "",
@@ -20,82 +18,50 @@ const initialValues: ContactFormData = {
     message: "",
 };
 
-export default function Contact() {
-    const [alertState, setAlertState] = useState<AlertState>({
-        isVisible: false,
-        type: "success",
-        message: "",
-    });
+interface Field {
+    id: "name" | "email" | "phone" | "message";
+    placeholder: string;
+}
 
+const FIELDS: Field[] = [
+    {
+        id: "name",
+        placeholder: "Your Name",
+    },
+    {
+        id: "email",
+        placeholder: "Your Email",
+    },
+    {
+        id: "phone",
+        placeholder: "Your Phone",
+    },
+    {
+        id: "message",
+        placeholder: "Message",
+    },
+];
+
+export default function Contact() {
     const {
         register,
-        handleSubmit,
-        reset,
         formState: {
             errors,
-            isSubmitting,
-        }
-    } = useForm<ContactFormData>({
+            isSubmitting
+        },
+        onFormSubmit,
+        isButtonDisabled,
+        alertState,
+        hideAlert,
+    } = useFormSubmission<ContactFormData>({
+        schema: ContactFormSchema,
         defaultValues: initialValues,
-        resolver: zodResolver(ContactFormSchema),
-        mode: "onChange", // Enable real-time validation for better UX
-        reValidateMode: "onChange", // Re-validate on every change
-        criteriaMode: "all", // Show all validation errors
-        shouldFocusError: true, // Focus on error field
+        onSubmit: onSubmit,
+        successMessage: "Thank you! Your message has been sent. We look forward to serving you.",
+        successTitle: "Message Sent!",
+        errorTitle: "Sending Failed",
+        errorMessage: "Something went wrong while sending your message. Please try again.",
     });
-
-    const showAlert = useCallback((
-        type: AlertState["type"],
-        message: string,
-        title?: string
-    ) => {
-        setAlertState({
-            isVisible: true,
-            type,
-            message,
-            title,
-        });
-    }, []);
-
-    const hideAlert = useCallback(() => {
-        setAlertState(prev => ({
-            ...prev,
-            isVisible: false,
-        }));
-    }, []);
-
-    const handleFormSubmit = useCallback(async (data: ContactFormData) => {
-        try {
-            await onSubmit(data);
-
-            showAlert(
-                "success",
-                "Thank you! Your message has been sent successfully. We look forward to serving you.",
-                "Message Sent!"
-            );
-
-            reset(initialValues);
-        } catch (error) {
-            const errorMessage = error instanceof Error
-                ? error.message
-                : "Something went wrong while sending a message. Please try again.";
-
-            showAlert(
-                "error",
-                errorMessage,
-                "Sending Failed"
-            );
-
-            console.error('Message Sending error:', error);
-        }
-    }, [reset, showAlert]);
-
-    const onFormSubmit = handleSubmit(handleFormSubmit);
-
-    const isButtonDisabled = useMemo(
-        () => isSubmitting,
-        [isSubmitting]
-    );
 
     const buttonText = useMemo(
         () => isSubmitting ? "Sending..." : "Send Message",
@@ -129,49 +95,29 @@ export default function Contact() {
                         noValidate
                     >
                         <div className="row g-3">
-                            <div className="col-12">
-                                <InputField
-                                    id="name"
-                                    placeholder="Your Name"
-                                    register={register("name")}
-                                    error={errors.name?.message}
-                                    disabled={isSubmitting}
-                                />
-                            </div>
-                            <div className="col-12">
-                                <InputField
-                                    id="email"
-                                    placeholder="Your Email"
-                                    register={register("email")}
-                                    error={errors.email?.message}
-                                    disabled={isSubmitting}
-                                />
-                            </div>
-                            <div className="col-12">
-                                <InputField
-                                    id="phone"
-                                    type="tel"
-                                    placeholder="Your Phone"
-                                    register={register("phone")}
-                                    error={errors.phone?.message}
-                                    disabled={isSubmitting}
-                                />
-                            </div>
-                            <div className="col-12">
-                                <InputField
-                                    id="message"
-                                    placeholder="Message"
-                                    register={register("message")}
-                                    isTextarea={true}
-                                    error={errors.message?.message}
-                                    disabled={isSubmitting}
-                                />
-                            </div>
+
+                            {FIELDS.map((field, index) => (
+                                <div
+                                    key={index}
+                                    className="col-12"
+                                >
+                                    <InputField
+                                        id={field.id}
+                                        type={field.id === "phone" ? "tel" : "text"}
+                                        placeholder={field.placeholder}
+                                        register={register(field.id)}
+                                        isTextarea={field.id === "message" ? true : false}
+                                        error={errors[field.id]?.message}
+                                        disabled={isSubmitting}
+                                    />
+                                </div>
+                            ))}
 
                             <div className="col-12">
                                 <SubmitButton
                                     isButtonDisabled={isButtonDisabled}
                                     btnText={buttonText}
+                                    className="w-100 py-3"
                                 />
                             </div>
 
@@ -194,10 +140,20 @@ export default function Contact() {
                             </div>
                         ))}
                         <div>
-                            {/* <iframe className="position-relative w-100"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                                frameBorder="0" style={{height: "205px", border:"0"}} allowFullScreen="" aria-hidden="false"
-                                tabindex="0"></iframe> */}
+                            <iframe
+                                className="position-relative w-100"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6709.9215467983595!2d87.27605558617391!3d26.66295139211589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d0078cc97f7%3A0x6b4b147d8cbd18a9!2sPurwanchal%20Vet%20Pharma%20-%20Veterinary%20Clinic%20%26%20Lab!5e0!3m2!1sen!2snp!4v1763358081539!5m2!1sen!2snp"
+                                style={{
+                                    height: "205px",
+                                    border: 0
+                                }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"  // Security
+                                aria-hidden="false"
+                                tabIndex={0}
+                                title="Business Location Map"
+                            />
                         </div>
                     </div>
                 </div>

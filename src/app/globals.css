@@ -11,11 +11,34 @@
     --font-roboto: 'Roboto', sans-serif;
 }
 
-/* CUSTOMIZATIONS */
+/* RESET */
 body {
     font-family: var(--font-poppins) !important;
     font-weight: 400;
     color: #212121;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+input:-moz-autofill,
+textarea:-moz-autofill {
+  background-color: var(--light);
+  color: #000;
+}
+input:-webkit-autofill::placeholder,
+textarea:-webkit-autofill::placeholder {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+[class^=flaticon-]:before,
+[class*=" flaticon-"]:before,
+[class^=flaticon-]:after,
+[class*=" flaticon-"]:after {
+    font-size: inherit;
+    margin-left: 0;
 }
 
 /* REUSABLE STYLES */
@@ -63,7 +86,7 @@ h6,
 
 /* HERO */
 .hero {
-    background: url(/images/hero.jpg) top right no-repeat;
+    background: url(/images/hero.webp) top right no-repeat;
     background-size: cover;
 }
 
@@ -95,7 +118,7 @@ h6,
 
 /* OFFER */
 .bg-offer {
-    background: url(/images/offer.jpg) top right no-repeat;
+    background: url(/images/offer.webp) top right no-repeat;
     background-size: cover;
 }
 
@@ -129,7 +152,7 @@ h6,
 
 /* TESTIMONIALS */
 .bg-testimonial {
-    background: url(/images/testimonial.jpg) top left no-repeat;
+    background: url(/images/testimonial.webp) top left no-repeat;
     background-size: cover;
 }
 .testimonial-carousel .owl-nav {
@@ -179,51 +202,3 @@ h6,
     font-size: 18px !important;
   }
 }
-
-
-/* @layer components { */
-    [class^=flaticon-]:before,
-[class*=" flaticon-"]:before,
-[class^=flaticon-]:after,
-[class*=" flaticon-"]:after {
-    font-size: inherit;
-    margin-left: 0;
-}
-.btn-square {
-    width: 36px;
-    height: 36px;
-}
-.btn-sm-square {
-    width: 28px;
-    height: 28px;
-}
-.btn-lg-square {
-    width: 46px;
-    height: 46px;
-}
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
-}
-.back-to-top {
-    position: fixed;
-    display: none;
-    right: 30px;
-    bottom: 0;
-    border-radius: 0;
-    z-index: 99;
-}
-
-/* Bootstrap heading overrides to ensure proper font weights */
-/* h2, .h2 { font-weight: 700 !important; }
-h3, .h3 { font-weight: 600 !important; }
-h4, .h4 { font-weight: 600 !important; } */
-/* .text-uppercase {
-    text-transform: uppercase !important;
-}
-.fw-bold, .font-weight-bold, strong, b {
-    font-weight: 700 !important;
-} */

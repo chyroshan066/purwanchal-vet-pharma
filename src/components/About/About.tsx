@@ -13,12 +13,12 @@ const DETAILS: Detail[] = [
     {
         id: 1,
         title: "Our Mission",
-        text: "Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna"
+        text: "To provide accessible, high-quality veterinary products and expert care to the animals of Itahari and Sunsari. We exist to improve animal health through reliable pharmaceuticals, professional guidance, and unwavering commitment to the wellbeing of every creature we serve."
     },
     {
         id: 2,
         title: "Our Vision",
-        text: "Purwanchal campus is a bagla billa. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna"
+        text: "To be Eastern Nepal's leading veterinary pharmacy, recognized for excellence in animal healthcare. We aspire to create a healthier future where quality veterinary care is available to all animals, from beloved pets to essential livestock."
     },
 ];
 
@@ -37,7 +37,7 @@ export const About = memo(({
                 <div className="position-relative h-100">
                     <Image
                         className="position-absolute w-100 h-100"
-                        src="/images/about.jpg"
+                        src="/images/about.webp"
                         alt="about-banner"
                         fill
                         style={{ objectFit: "cover" }}
@@ -51,7 +51,8 @@ export const About = memo(({
                     subTitle="We Keep Your Pets Happy All Time"
                 />
 
-                <h4 className={`text-body mb-4 ${styles.shadeGray}`}>Diam dolor diam ipsum tempor sit. Clita erat ipsum et lorem stet no labore lorem sit clita duo justo magna dolore</h4>
+                <h4 className={`text-body mb-4 ${styles.shadeGray}`}>Where Animal Wellness Meets Expert Care
+                    Proudly serving Itahari's pet parents and farmers with premium veterinary pharmaceuticals and professional guidance.</h4>
                 <div className="bg-light p-4">
 
                     <ul

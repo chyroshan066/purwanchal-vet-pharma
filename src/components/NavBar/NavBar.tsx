@@ -38,11 +38,11 @@ export const Navbar = memo(() => {
         >
             <Link
                 href="/"
-                className={`navbar-brand ms-lg-5 ${styles.brand}`}
+                className={`navbar-brand ${styles.brand}`}
             >
                 <h1 className={`m-0 text-uppercase ${styles.h1}`}>
                     <i className={`bi bi-shop fs-1 me-3 ${styles.brandIcon}`} />
-                    Pet Shop
+                    Purwanchal Vet
                 </h1>
             </Link>
 
