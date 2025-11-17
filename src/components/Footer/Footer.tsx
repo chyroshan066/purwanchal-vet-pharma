@@ -77,7 +77,7 @@ export const Footer = memo(() => {
                 <div className="row g-5">
 
                     <FooterColumn header="Get In Touch">
-                        <p className="mb-4 shade-gray">Have questions about our services or need veterinary assistance? We're here to help. Reach out to our friendly team for appointments, consultations, or any inquiries about your pet's health and wellbeing.</p>
+                        <p className="mb-4 shade-gray">Have questions about our services or need veterinary assistance? We&apos;re here to help. Reach out to our friendly team for appointments, consultations, or any inquiries about your pet&apos;s health and wellbeing.</p>
                         {CONTACTS.map((contact, index) => (
                             <p
                                 key={index}

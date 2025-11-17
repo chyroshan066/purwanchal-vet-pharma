@@ -28,7 +28,7 @@ export const Hero = memo(() => {
                     <h1 className={`display-1 text-uppercase mb-lg-4 ${styles.heroTitle}`}>Purwanchal Vet Pharma</h1>
                     <h1 className={`text-uppercase mb-lg-4 ${styles.heroSubtitle}`}>Expert Veterinary Care for Your Furry Family Members</h1>
                     <p className={`fs-4 mb-lg-4 ${styles.heroText}`}>
-                        From preventive wellness to emergency care, we provide comprehensive veterinary services with compassion and expertise. Your pet's health and happiness are our mission.
+                        From preventive wellness to emergency care, we provide comprehensive veterinary services with compassion and expertise. Your pet&apos;s health and happiness are our mission.
                     </p>
                     <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
 

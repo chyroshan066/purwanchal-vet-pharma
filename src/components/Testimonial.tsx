@@ -29,11 +29,11 @@ export const Testimonial = memo(() => {
                                 className={`text-center owl-item`}
                             >
                                 <div className="position-relative mb-4">
-                                    <img
+                                    {/* <img
                                         className="img-fluid mx-auto"
                                         src={testimonial.imgSrc}
                                         alt=""
-                                    />
+                                    /> */}
                                     <div
                                         className="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white"
                                         style={{

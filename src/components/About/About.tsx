@@ -52,7 +52,7 @@ export const About = memo(({
                 />
 
                 <h4 className={`text-body mb-4 ${styles.shadeGray}`}>Where Animal Wellness Meets Expert Care
-                    Proudly serving Itahari's pet parents and farmers with premium veterinary pharmaceuticals and professional guidance.</h4>
+                    Proudly serving Itahari&apos;s pet parents and farmers with premium veterinary pharmaceuticals and professional guidance.</h4>
                 <div className="bg-light p-4">
 
                     <ul
