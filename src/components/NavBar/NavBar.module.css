@@ -4,11 +4,12 @@
 }
 .h1 {
     font-weight: 700 !important;
-    font-size: calc(1.275rem + 1.5vw);
+    font-size: calc(0.65rem + 1.5vw);
 }
 .brandIcon {
     color: #7AB730 !important;
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
+    font-size: calc(0.65rem + 1.5vw);
 }
 .navbar {
     background: white !important;
@@ -144,6 +145,9 @@
 
 @media (min-width: 1200px) {
     .h1 {
+        font-size: 2.5rem;
+    }
+    .brandIcon {
         font-size: 2.5rem;
     }
 }

@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 export const Navbar = memo(() => {
     const navbarRef = useRef<HTMLElement>(null);
     const pathname = usePathname();
+    const collapseRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const navbar = navbarRef.current;
@@ -31,6 +32,23 @@ export const Navbar = memo(() => {
         };
     }, []);
 
+    const closeNavbar = () => {
+        const collapse = collapseRef.current;
+
+        if (collapse && collapse.classList.contains('show')) {
+            const bootstrap = (window as any).bootstrap;
+
+            const bsCollapse = bootstrap?.Collapse?.getInstance(collapse);
+
+            if (bsCollapse) {
+                bsCollapse.hide();
+            } else {
+                // Fallback: manually remove the class if Bootstrap instance not found
+                collapse.classList.remove('show');
+            }
+        }
+    };
+
     return (
         <nav
             ref={navbarRef}
@@ -42,7 +60,7 @@ export const Navbar = memo(() => {
             >
                 <h1 className={`m-0 text-uppercase ${styles.h1}`}>
                     <i className={`bi bi-shop fs-1 me-3 ${styles.brandIcon}`} />
-                    Purwanchal Vet
+                    Purwanchal Vet Pharma
                 </h1>
             </Link>
 
@@ -59,6 +77,7 @@ export const Navbar = memo(() => {
             </button>
 
             <div
+                ref={collapseRef}
                 className="collapse navbar-collapse"
                 id="navbarCollapse"
             >
@@ -72,6 +91,7 @@ export const Navbar = memo(() => {
                                 key={index}
                                 href={link.href}
                                 className={`nav-link ${styles.navLink} ${isActive ? styles.active : ''}`}
+                                onClick={closeNavbar}
                             >
                                 {link.name}
                             </Link>
@@ -81,6 +101,7 @@ export const Navbar = memo(() => {
                     <Link
                         href="/contact"
                         className={`nav-link ${styles.navLink} ${styles.navContact}`}
+                        onClick={closeNavbar}
                     >
                         Contact <i className="bi bi-arrow-right" />
                     </Link>
