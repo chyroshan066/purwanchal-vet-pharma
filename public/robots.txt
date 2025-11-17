@@ -11,4 +11,4 @@ Disallow: /*.woff$
 Disallow: /*.ttf$
 Disallow: /*.eot$
 
-Sitemap: https://sewarotattoo.com/sitemap.xml
+Sitemap: https://purwanchalvetpharma.com/sitemap.xml

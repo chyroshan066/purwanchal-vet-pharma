@@ -10,6 +10,8 @@ import { ContactFormData, ContactFormSchema } from "@/middlewares/schema";
 import { onSubmit } from "@/utils/contactData";
 import { useFormSubmission } from "@/hooks/useFormSubmission";
 import { useMemo } from "react";
+import Link from "next/link";
+import styles from "@/components/About/About.module.css";
 
 const initialValues: ContactFormData = {
     name: "",
@@ -128,16 +130,18 @@ export default function Contact() {
                 <div className="col-lg-5">
                     <div className="bg-light mb-5 p-5">
                         {CONTACTS.map((contact, index) => (
-                            <div
+                            <Link
+                                href={contact.href}
                                 key={index}
-                                className="d-flex align-items-center mb-2"
+                                className="d-flex align-items-center mb-2 no-underline"
+                                target="_blank"
                             >
                                 <i className={`bi ${contact.icon} fs-1 text-primary me-3`} />
                                 <div className="text-start">
-                                    <h6 className="text-uppercase mb-1">{contact.header}</h6>
-                                    <span>{contact.text}</span>
+                                    <h6 className="text-uppercase mb-1 text-dark">{contact.header}</h6>
+                                    <span className={styles.shadeGray}>{contact.text}</span>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                         <div>
                             <iframe

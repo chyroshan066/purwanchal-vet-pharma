@@ -38,7 +38,7 @@ interface ImgSrc {
     imgSrc: string;
 }
 
-interface Name {
+export interface Name {
     name: string;
 }
 
@@ -46,13 +46,18 @@ export interface Href {
     href: string;
 }
 
+export interface Description {
+    description: string;
+}
+
+export interface Email {
+    email: string;
+}
+
 export interface Contact extends Icon, Text, Header, Href {}
 export interface NavLink extends Name, Href {}
 export interface SocialLink extends Href, Icon {}
-
-export interface Service extends Icon, Title {
-    description: string;
-}
+export interface Service extends Icon, Title {}
 
 export interface Product extends ImgSrc {
     product: string;

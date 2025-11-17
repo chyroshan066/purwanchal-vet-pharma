@@ -13,6 +13,8 @@ import { TopBar } from "@/components/TopBar/TopBar";
 import { Navbar } from "@/components/NavBar/NavBar";
 import { Footer } from "@/components/Footer/Footer";
 import { BackToTop } from "@/components/BackToTop/BackToTop";
+import { baseURL } from "@/constants";
+import { veterinaryClinicStructuredData, veterinaryServicesStructuredData, veterinarySpecialtiesStructuredData } from "@/constants/structured-data";
 
 const poppins = localFont({
   src: [
@@ -54,16 +56,40 @@ const roboto = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "<website_title>",
-  description: "<website_description>",
+  title: "Purwanchal Vet Pharma - Quality Veterinary Care in Itahari, Sunsari | Pet Healthcare & Animal Wellness",
+  description: "Purwanchal Vet Pharma provides comprehensive veterinary services in Itahari-04, Sunsari, Nepal. Expert pet care, veterinary pharmaceuticals, grooming, training, and emergency treatment for your beloved companions.",
   keywords: [
-    "<search_keyword1>",
-    "<search_keyword2>",
-    // ..... and so on
+    "veterinary pharmacy Itahari",
+    "vet clinic Sunsari",
+    "Purwanchal Vet Pharma",
+    "pet care Itahari",
+    "veterinary services Purva Line",
+    "vet doctor Itahari-04",
+    "pet clinic Sunsari Nepal",
+    "animal care Eastern Nepal",
+    "pet grooming Itahari",
+    "veterinary treatment Nepal",
+    "pet vaccination Itahari",
+    "animal healthcare Sunsari",
+    "pet surgery Itahari",
+    "veterinary consultation Nepal",
+    "pet medicines Nepal",
+    "veterinary pharmaceuticals Itahari",
+    "pet food supplements Sunsari",
+    "animal healthcare products",
+    "pet training Itahari",
+    "diagnostic testing pets",
+    "emergency vet care Sunsari",
+    "home vet service Nepal",
+    "pet health checkup Itahari",
+    "dog care Itahari",
+    "cat veterinarian Sunsari",
+    "livestock treatment Nepal",
+    "farm animal healthcare",
   ],
-  authors: [{ name: "<website_name>" }],
-  creator: "<website_name>",
-  publisher: "<website_name>",
+  authors: [{ name: "Purwanchal Vet Pharma" }],
+  creator: "Purwanchal Vet Pharma",
+  publisher: "Purwanchal Vet Pharma",
   metadataBase: new URL("https://purwanchalvetpharma.com"),
   alternates: {
     canonical: "/",
@@ -113,25 +139,25 @@ export const metadata: Metadata = {
   },
   manifest: '/favicon_io/site.webmanifest',
   openGraph: {
-    title: "<website_title>",
-    description: "<website_description>",
+    title: "Purwanchal Vet Pharma - Expert Veterinary Care in Itahari, Sunsari",
+    description: "Comprehensive veterinary services, pet care, grooming, and emergency treatment in Itahari-04, Sunsari, Nepal. Your trusted partner in animal wellness.",
     type: "website",
     locale: "en_US",
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
-    siteName: "<website_name>",
+    url: `${baseURL}`,
+    siteName: "Purwanchal Vet Pharma",
     images: [
       {
         url: "/images/preview.webp",
         width: 1200,
         height: 630,
-        alt: "<website_name> Preview",
+        alt: "Purwanchal Vet Pharma - Quality Veterinary Care in Itahari, Sunsari, Nepal",
       }
     ],
   },
-  category: "<website_category>",
-  classification: "<website_classification>",
+  category: "Healthcare",
+  classification: "Veterinary Services, Animal Healthcare, Pet Care",
   referrer: "origin-when-cross-origin",
-  applicationName: "<website_name>",
+  applicationName: "Purwanchal Vet Pharma",
   generator: "Next.js",
 };
 
@@ -152,18 +178,24 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
         />
-        {/* <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify("structured_data_from_constants"),
+            __html: JSON.stringify(veterinaryClinicStructuredData),
           }}
-        /> */}
-        {/* <Script id="check-plugins" strategy="afterInteractive">
-          {`
-    console.log('jQuery loaded:', typeof window.$ !== 'undefined');
-    console.log('easyPieChart loaded:', typeof window.$.fn.easyPieChart !== 'undefined');
-  `}
-        </Script> */}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(veterinaryServicesStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(veterinarySpecialtiesStructuredData),
+          }}
+        />
       </head>
 
       <body
