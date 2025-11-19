@@ -89,7 +89,7 @@ export const veterinaryClinicStructuredData: VeterinaryBusinessStructuredData = 
   "@type": "VeterinaryCare",
   "name": "Purwanchal Vet Pharma", 
   "description": "Professional veterinary care and pharmaceutical services in Itahari, Sunsari. Comprehensive animal healthcare including routine checkups, vaccinations, surgery, grooming, emergency care, and veterinary products. Expert veterinarians, modern facilities, and compassionate care for pets and livestock.", 
-  "url": `https://purwanchalvetpharma.com`,
+  "url": `https://purwanchalvetpharma.com.np`,
   
   "address": {
     "@type": "PostalAddress",

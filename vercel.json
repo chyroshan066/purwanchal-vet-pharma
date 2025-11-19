@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "purwanchalvetpharma.com"
+          "value": "purwanchalvetpharma.com.np"
         },
         {
           "type": "header",
@@ -13,7 +13,7 @@
           "value": "http"
         }
       ],
-      "destination": "https://www.purwanchalvetpharma.com/:path*",
+      "destination": "https://www.purwanchalvetpharma.com.np/:path*",
       "permanent": true
     },
     {
@@ -21,7 +21,7 @@
       "has": [
         {
           "type": "host",
-          "value": "www.purwanchalvetpharma.com"
+          "value": "www.purwanchalvetpharma.com.np"
         },
         {
           "type": "header",
@@ -29,7 +29,7 @@
           "value": "http"
         }
       ],
-      "destination": "https://www.purwanchalvetpharma.com/:path*",
+      "destination": "https://www.purwanchalvetpharma.com.np/:path*",
       "permanent": true
     }
   ]

@@ -167,7 +167,7 @@ The website is fully responsive and tested on:
 
 ### Custom Domain Setup
 
-The website is configured for the custom domain `purwanchalvetpharma.com`:
+The website is configured for the custom domain `purwanchalvetpharma.com.np`:
 
 1. DNS records are configured for the domain
 2. SSL certificates are automatically provisioned
@@ -206,7 +206,7 @@ npm run type-check
 
 The website is deployed on Vercel with automatic deployments:
 
-- **Production**: https://purwanchalvetpharma.com
+- **Production**: https://purwanchalvetpharma.com.np
 - **Preview**: Automatic preview deployments for pull requests
 
 ### Manual Deployment
@@ -220,7 +220,7 @@ npm run export  # if using static export
 
 ### Client Information
 - **Dental Clinic**: Purwanchal Vet Pharma
-- **Domain**: purwanchalvetpharma.com
+- **Domain**: purwanchalvetpharma.com.np
 - **Deployment**: Vercel
 
 ### Developer Contact

@@ -90,7 +90,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Purwanchal Vet Pharma" }],
   creator: "Purwanchal Vet Pharma",
   publisher: "Purwanchal Vet Pharma",
-  metadataBase: new URL("https://purwanchalvetpharma.com"),
+  metadataBase: new URL("https://purwanchalvetpharma.com.np"),
   alternates: {
     canonical: "/",
   },
