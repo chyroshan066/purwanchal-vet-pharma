@@ -104,7 +104,7 @@ export const veterinaryClinicStructuredData: VeterinaryBusinessStructuredData = 
   "email": "pvf.vet@gmail.com", 
   
   "openingHours": [
-    "Su-Fr 08:00-18:00", 
+    "Su-Sa 07:00-19:00", 
   ],
   
   "medicalSpecialty": ["Veterinary Medicine", "Animal Surgery", "Pet Care", "Livestock Care"],

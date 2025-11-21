@@ -10,6 +10,7 @@ import Image from "next/image";
 import { TEAM } from "@/constants";
 
 export const Team = memo(() => {
+    const shouldUseCarousel = TEAM.length >= 5;
     const { carouselRef } = useOwlCarousel(TEAM_CAROUSEL_OPTIONS);
 
     return (
@@ -24,15 +25,16 @@ export const Team = memo(() => {
             />
 
             <div
-                ref={carouselRef}
-                className="owl-carousel team-carousel position-relative"
-                style={{ paddingRight: "25px" }}
+                ref={shouldUseCarousel ? carouselRef : null}
+                className={shouldUseCarousel ? "owl-carousel team-carousel position-relative" : "d-flex flex-wrap justify-content-center gap-4"}
+                style={shouldUseCarousel ? { paddingRight: "25px" } : {}}
             >
 
                 {TEAM.map((member, index) => (
                     <div
                         key={index}
                         className={styles.teamItem}
+                        style={!shouldUseCarousel ? { maxWidth: "350px", width: "100%" } : {}}
                     >
                         <div className="position-relative overflow-hidden">
                             <Image
@@ -57,21 +59,18 @@ export const Team = memo(() => {
                                             link: member.social.facebookLink,
                                         },
                                         {
-                                            icon: "bi-twitter",
-                                            link: member.social.twitterLink,
-                                        },
-                                        {
-                                            icon: "bi-linkedin",
-                                            link: member.social.linkedinLink,
+                                            icon: "bi-instagram",
+                                            link: member.social.instagramLink,
                                         },
                                     ].map((social, index) => (
-                                        <a
+                                        social.link && (<a
                                             key={index}
                                             className="btn btn-light btn-square mx-1"
-                                            href={social.icon}
+                                            href={social.link}
+                                            target="_blank"
                                         >
                                             <i className={`bi ${social.icon}`} />
-                                        </a>
+                                        </a>)
                                     ))}
 
                                 </div>

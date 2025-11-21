@@ -42,19 +42,14 @@ export const Products = memo(({
                     >
                         <div className={`position-relative bg-light d-flex flex-column text-center ${styles.productItemInner}`}>
                             <Image
-                                className="img-fluid mb-4"
+                                className={styles.productImage}
                                 src={product.imgSrc}
                                 alt={product.product}
                                 width={300}
                                 height={300}
                                 priority={index <= 2}
-                                style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    objectFit: 'contain'
-                                }}
                             />
-                            <h6 className="text-uppercase">{product.product}</h6>
+                            <h6 className={`text-uppercase ${styles.productTitle}`}>{product.product}</h6>
                         </div>
                     </div>
                 ))}

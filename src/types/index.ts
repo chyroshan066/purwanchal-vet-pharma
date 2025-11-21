@@ -66,9 +66,8 @@ export interface Product extends ImgSrc {
 export interface Team extends ImgSrc, Name {
     designation: string;
     social: {
-        facebookLink: string;
-        twitterLink: string;
-        linkedinLink: string;
+        facebookLink?: string;
+        instagramLink?: string;
     }
 }
 

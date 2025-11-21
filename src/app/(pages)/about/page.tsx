@@ -2,7 +2,7 @@ import { About } from "@/components/About/About";
 import { baseURL } from "@/constants";
 import { Metadata } from "next";
 // import { Offer } from "@/components/Offer";
-// import { Team } from "@/components/Team/Team";
+import { Team } from "@/components/Team/Team";
 
 export const metadata: Metadata = {
     title: "About Us - Purwanchal Vet Pharma | Expert Veterinary Team in Itahari, Sunsari",
@@ -52,7 +52,7 @@ export default function AboutPage() {
         <>
             <About className="mt-5" />
             {/* <Offer /> */}
-            {/* <Team /> */}
+            <Team />
         </>
     );
 }
