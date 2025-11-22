@@ -118,27 +118,25 @@ export const Footer = memo(() => {
                             noValidate
                         >
                             <div>
-                                <div className="input-group">
-                                    <div className="d-flex">
-                                        <InputField
-                                            id="email"
-                                            placeholder="Your Email"
-                                            register={register("email")}
-                                            error={errors.email?.message}
-                                            disabled={isSubmitting}
-                                            className={`form-control p-3 ${styles.noRounded}`}
-                                            showError={false}
-                                        />
+                                <div className="d-flex">
+                                    <InputField
+                                        id="email"
+                                        placeholder="Your Email"
+                                        register={register("email")}
+                                        error={errors.email?.message}
+                                        disabled={isSubmitting}
+                                        className={`form-control p-3 ${styles.noRounded}`}
+                                        showError={false}
+                                    />
 
-                                        <SubmitButton
-                                            isButtonDisabled={isButtonDisabled}
-                                            btnText={buttonText}
-                                        />
-                                    </div>
+                                    <SubmitButton
+                                        isButtonDisabled={isButtonDisabled}
+                                        btnText={buttonText}
+                                    />
+                                </div>
 
-                                    <div className={styles.errorContainer}>
-                                        {errors.email?.message && <ErrorMessage message={errors.email.message} />}
-                                    </div>
+                                <div className={styles.errorContainer}>
+                                    {errors.email?.message && <ErrorMessage message={errors.email.message} />}
                                 </div>
                             </div>
                         </form>

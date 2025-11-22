@@ -96,7 +96,6 @@ export const InputField = memo((
     const registerProps = getRegisterProps();
 
     return (
-        // <div>
         <div className={showError ? "" : "d-inline-block w-100"}>
             <input
                 {...registerProps}

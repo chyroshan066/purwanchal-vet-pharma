@@ -74,3 +74,11 @@ export interface Team extends ImgSrc, Name {
 export interface Testimonial extends Name, ImgSrc, Text {
     profession: string;
 }
+
+export interface GalleryItem {
+    id: number;
+    type: "photo" | "video";
+    src: string;
+    thumbnail?: string; // For videos, optional thumbnail
+    caption?: string;
+}
