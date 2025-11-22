@@ -20,10 +20,12 @@ export const Hero = memo(() => {
 
     return <>
         <Container
-            outerContainerClassName="bg-primary py-5 mb-5 hero"
+            // outerContainerClassName="bg-primary py-5 mb-5 hero"
+            outerContainerClassName={`bg-primary py-5 mb-5 hero ${styles.heroSection}`}
             innerContainerClassName="py-5"
         >
-            <div className="row justify-content-start">
+            {/* <div className="row justify-content-start"> */}
+            <div className={`row justify-content-start ${styles.heroContent}`}>
                 <div className="col-lg-8 text-center text-lg-start">
                     <h1 className={`display-1 text-uppercase mb-lg-4 ${styles.heroTitle}`}>Purwanchal Vet Pharma</h1>
                     <h1 className={`text-uppercase mb-lg-4 ${styles.heroSubtitle}`}>Expert Veterinary Care for Your Furry Family Members</h1>

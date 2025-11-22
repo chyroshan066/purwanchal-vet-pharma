@@ -8,13 +8,14 @@
     border: 2px solid white;
 }
 .btnOutlineLight {
-    color: white;
     background: transparent;
     transition: all 0.5s;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
 }
 .btnOutlineLight:hover {
-    background: white;
-    color: #212121;
+    background: #1a1a1a;
+    color: white;
 }
 .btnLight {
     background: white;

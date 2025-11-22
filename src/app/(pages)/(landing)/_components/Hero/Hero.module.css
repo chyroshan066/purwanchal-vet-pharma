@@ -1,35 +1,36 @@
+.heroSection {
+    position: relative;
+}
+.heroSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+.heroContent {
+    position: relative;
+    z-index: 2;
+}
 .heroTitle {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: #212121;
+    color: #1a1a1a;
 }
 .heroSubtitle {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: white;
+    color: #2d2d2d;
 }
 .heroText {
     font-family: 'Poppins', sans-serif;
-    color: white;
     font-size: 1.1rem;
-}
-.btnLight {
-    border: 2px solid white;
-    color: white;
-    background: transparent;
-    transition: all 0.5s;
-    font-family: 'Roboto', sans-serif; 
-    text-decoration: none;
-    display: inline-block; 
-    padding: 12px 24px; 
-    font-weight: 700; 
-    text-transform: uppercase;
-}
-.btnLight:hover {
-    background: white;
-    color: #212121;
+    color: #3d3d3d;
 }
 .btnPlay {
     position: relative;
