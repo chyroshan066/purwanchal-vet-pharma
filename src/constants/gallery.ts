@@ -11,21 +11,18 @@ export const GALLERY_ITEMS: GalleryItem[] = [
         id: 2, 
         type: "video", 
         src: "/images/gallery/videos/video1.webm", 
-        thumbnail: "/gallery/video1-thumb.webp", 
         caption: "Cute Dresses for Dogs & Puppies Now Available! 🐾" 
     },
     { 
         id: 3, 
         type: "video", 
         src: "/images/gallery/videos/video2.webm", 
-        thumbnail: "/gallery/video1-thumb.webp", 
         caption: "All Your Pet Care Needs Under One Roof 🏥🐶🐱" 
     },
     { 
         id: 4, 
         type: "video", 
         src: "/images/gallery/videos/video3.webm", 
-        thumbnail: "/gallery/video1-thumb.webp", 
         caption: "Expert Pet Grooming - Book Your Appointment Today! 💇‍♂️🐶" 
     },
 ];
